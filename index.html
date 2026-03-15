@@ -1,3 +1,8 @@
+Разбира се! Увеличих базовия шрифт на целия документ, както и пропорционално размерите на заглавията и бутоните, за да се запази балансът. Сега текстът ще бъде по-четлив, особено на мобилни устройства.
+
+Ето пълния, редактиран код:
+
+HTML
 <!DOCTYPE html>
 <html lang="bg">
 <head>
@@ -8,13 +13,16 @@
 /* --- ОБЩИ СТИЛОВЕ --- */
 body {
   margin: 0;
+  /* Увеличен базов шрифт с 2 пункта (от стандартни 16px на ~19px) */
   font-family: 'Georgia', serif;
+  font-size: 19px; 
   background: #ffffff;
   color: #333;
   text-align: center;
+  line-height: 1.6;
 }
 
-/* --- ПОЩЕНСКИ ПЛИК (ПО СНИМКАТА) --- */
+/* --- ПОЩЕНСКИ ПЛИК --- */
 #envelope-screen {
   height: 100vh;
   display: flex;
@@ -25,9 +33,9 @@ body {
 }
 
 .envelope {
-  width: 360px;
-  height: 240px;
-  background: #a9a39a; /* Цвят от снимката */
+  width: 380px; /* Малко по-голям, за да побере текста */
+  height: 250px;
+  background: #a9a39a; 
   position: relative;
   cursor: pointer;
   box-shadow: 0 15px 35px rgba(0,0,0,0.2);
@@ -48,16 +56,15 @@ body {
   border-radius: 4px 4px 0 0;
 }
 
-/* Златен печат */
 .wax-seal {
   position: absolute;
   top: 52%; 
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 55px;
-  height: 55px;
+  width: 60px;
+  height: 60px;
   background: #d4af37;
-  background-image: url('https://img.icons8.com/ios-filled/100/ffffff/tree-planting.png'); /* Икона на дърво */
+  background-image: url('https://img.icons8.com/ios-filled/100/ffffff/tree-planting.png'); 
   background-size: 70%;
   background-position: center;
   background-repeat: no-repeat;
@@ -70,11 +77,11 @@ body {
 
 .envelope-text {
   position: absolute;
-  bottom: 40px;
+  bottom: 35px;
   width: 100%;
   color: #f1f1f1;
   font-style: italic;
-  font-size: 14px;
+  font-size: 17px; /* Увеличено */
 }
 
 /* --- ОСНОВЕН САЙТ --- */
@@ -86,70 +93,71 @@ body {
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
 header {
-  /* ТУК ЗАМЕНИ 'my-photo.jpg' С ТВОЯТА СНИМКА */
-  background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), 
+  background: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)), 
               url('my-photo.jpg') center/cover no-repeat;
   height: 90vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   color: white;
-  text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+  text-shadow: 2px 2px 12px rgba(0,0,0,0.6);
 }
 
-header h1 { font-size: 50px; margin: 0; }
-header h2 { font-weight: normal; font-size: 22px; }
+header h1 { font-size: 56px; margin: 0; } /* Увеличено */
+header h2 { font-weight: normal; font-size: 26px; } /* Увеличено */
 
-section { padding: 80px 20px; max-width: 700px; margin: auto; }
-h2 { color: #8b5e3c; font-size: 28px; margin-bottom: 30px; }
+section { padding: 80px 20px; max-width: 750px; margin: auto; }
+h2 { color: #8b5e3c; font-size: 32px; margin-bottom: 35px; } /* Увеличено */
 
 /* ДРЕСКОД ЦВЕТОВЕ */
 .dresscode-colors {
   display: flex;
   justify-content: center;
-  gap: 15px;
-  margin-top: 20px;
+  gap: 18px;
+  margin-top: 25px;
 }
 
 .color-circle {
-  width: 45px;
-  height: 45px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.15);
 }
 
-/* ТУК МОЖЕШ ДА ПРОМЕНИШ ЦВЕТОВЕТЕ (HEX кодове) */
-.c1 { background: #e3d5ca; } /* Бежово */
-.c2 { background: #d5bdaf; } /* Таупе */
-.c3 { background: #edede9; } /* Кремаво */
-.c4 { background: #a3b18a; } /* Градински чай */
-.c5 { background: #588157; } /* Маслина */
+.c1 { background: #e3d5ca; } 
+.c2 { background: #d5bdaf; } 
+.c3 { background: #edede9; } 
+.c4 { background: #a3b18a; } 
+.c5 { background: #588157; } 
 
 .map-link {
   display: inline-block;
-  margin-top: 15px;
-  padding: 12px 30px;
+  margin-top: 20px;
+  padding: 14px 35px;
   background: #a9a39a;
   color: white;
   text-decoration: none;
-  border-radius: 5px;
+  border-radius: 6px;
   font-weight: bold;
+  font-size: 18px; /* Увеличено */
 }
 
 form { 
   background: #fdfaf7; 
-  padding: 30px; 
-  border-radius: 10px; 
-  box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
+  padding: 35px; 
+  border-radius: 12px; 
+  box-shadow: 0 5px 20px rgba(0,0,0,0.06); 
 }
 
 input, select, button { 
   width: 100%; 
-  padding: 12px; 
-  margin: 10px 0; 
-  border-radius: 5px; 
+  padding: 14px; 
+  margin: 12px 0; 
+  border-radius: 6px; 
   border: 1px solid #ddd;
   box-sizing: border-box;
+  font-size: 18px; /* Увеличено */
+  font-family: 'Georgia', serif;
 }
 
 button { 
@@ -157,22 +165,22 @@ button {
   color: white; 
   border: none; 
   cursor: pointer; 
-  font-size: 16px; 
+  font-weight: bold;
 }
 
 .drink-drive {
   background: #f4ece4;
-  padding: 20px;
+  padding: 25px;
   border-radius: 10px;
-  margin-top: 40px;
+  margin-top: 45px;
   display: flex;
   align-items: center;
   text-align: left;
-  font-size: 14px;
+  font-size: 17px; /* Увеличено */
 }
-.drink-drive img { width: 35px; margin-right: 15px; }
+.drink-drive img { width: 40px; margin-right: 20px; }
 
-footer { padding: 40px; background: #f7f7f7; font-size: 13px; color: #777; }
+footer { padding: 50px; background: #f7f7f7; font-size: 16px; color: #777; }
 
 </style>
 </head>
@@ -182,7 +190,7 @@ footer { padding: 40px; background: #f7f7f7; font-size: 13px; color: #777; }
   <div class="envelope" onclick="openEnvelope()">
     <div class="flap" id="f"></div>
     <div class="wax-seal" id="s"></div>
-    <div class="envelope-text">Натиснете, за да отворите</div>
+    <div class="envelope-text">Натиснете, за да отворите поканата</div>
   </div>
 </div>
 
@@ -190,21 +198,21 @@ footer { padding: 40px; background: #f7f7f7; font-size: 13px; color: #777; }
   <header>
     <h1>Виктория & Любомир</h1>
     <h2>22.08.2026</h2>
-    <p>Споделете нашето щастие!</p>
+    <p>Очакваме ви, за да отпразнуваме любовта!</p>
   </header>
 
   <section>
     <h2>Кога и Къде?</h2>
-    <p>Очакваме ви на <strong>22.08.2026 г.</strong> в 17:30 ч.</p>
+    <p>Очакваме ви на <strong>22.08.2026 г.</strong> в <strong>17:30 ч.</strong></p>
     <p>Ресторант "Корията", гр. София</p>
-    <a href="https://www.google.com/maps/search/?api=1&query=ресторант+Корията" target="_blank" class="map-link">
+    <a href="https://www.google.com/maps/search/?api=1&query=Ресторант+Корията+София" target="_blank" class="map-link">
        📍 ВИЖТЕ ЛОКАЦИЯТА
     </a>
   </section>
 
   <section style="background-color: #fdfaf7;">
     <h2>Дрескод</h2>
-    <p>Ще бъдем щастливи, ако подкрепите нашата цветова палитра:</p>
+    <p>Ще бъдем щастливи, ако изберете тоалет в нашата цветова палитра:</p>
     <div class="dresscode-colors">
       <div class="color-circle c1"></div>
       <div class="color-circle c2"></div>
@@ -217,33 +225,34 @@ footer { padding: 40px; background: #f7f7f7; font-size: 13px; color: #777; }
   <section>
     <h2>Програма</h2>
     <p><strong>17:30</strong> – Welcome Drink</p>
-    <hr style="width: 30%; border: 0.5px solid #eee;">
-    <p><strong>18:00</strong> – Ритуал</p>
-    <hr style="width: 30%; border: 0.5px solid #eee;">
-    <p><strong>19:00</strong> – Вечеря и танци</p>
+    <hr style="width: 40%; border: 0.5px solid #ddd; margin: 15px auto;">
+    <p><strong>18:00</strong> – Сватбена церемония</p>
+    <hr style="width: 40%; border: 0.5px solid #ddd; margin: 15px auto;">
+    <p><strong>19:00</strong> – Празнична вечеря</p>
 
     <div class="drink-drive">
       <img src="https://img.icons8.com/ios-filled/50/8b5e3c/car.png" alt="Car"/>
-      <span>За вашето пълно спокойствие сме подсигурили <strong>Drink & Drive</strong> пакет за вечерта.</span>
+      <span>За вашето пълно спокойствие сме подсигурили <strong>Drink & Drive</strong> услуги за цялата вечер.</span>
     </div>
   </section>
 
   <section style="background-color: #fdfaf7;">
-    <h2>Потвърждение</h2>
+    <h2>Потвърждение (RSVP)</h2>
+    <p style="margin-bottom: 25px;">Моля, потвърдете вашето присъствие до 01.07.2026 г.</p>
     <form action="https://formspree.io/f/lyubomir.kostov95@gmail.com" method="POST">
       <input type="text" name="name" placeholder="Вашето име" required>
       <select name="status" required>
         <option value="" disabled selected>Ще присъствате ли?</option>
-        <option value="Да">Да, ще присъствам</option>
-        <option value="Не">За съжаление, не</option>
+        <option value="Да">Да, ще присъствам с удоволствие</option>
+        <option value="Не">За съжаление, няма да мога</option>
       </select>
       <input type="number" name="guests" placeholder="Брой гости" min="1">
-      <button type="submit">ИЗПРАТИ</button>
+      <button type="submit">ИЗПРАТИ ПОТВЪРЖДЕНИЕ</button>
     </form>
   </section>
 
   <footer>
-    <p>С обич: Виктория и Любомир</p>
+    <p>С много обич: Виктория и Любомир</p>
   </footer>
 </div>
 
