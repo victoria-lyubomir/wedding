@@ -5,39 +5,33 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Сватбата на Виктория и Любомир</title>
 <style>
-/* --- Общи стилове --- */
-body{
-  margin:0;
+/* --- ОБЩИ СТИЛОВЕ --- */
+body {
+  margin: 0;
   font-family: 'Georgia', serif;
-  background:#f7f7f7;
-  color:#333;
-  text-align:center;
-  overflow-x: hidden;
+  background: #ffffff;
+  color: #333;
+  text-align: center;
 }
 
-/* --- ПОЩЕНСКИ ПЛИК --- */
+/* --- ПОЩЕНСКИ ПЛИК (ПО СНИМКАТА) --- */
 #envelope-screen {
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #f7f3ef;
-  perspective: 1000px; /* Добавено за 3D ефект */
+  background: #fdfaf7;
+  perspective: 1500px;
 }
 
 .envelope {
-  width: 350px;
-  height: 230px;
-  background: linear-gradient(145deg, #f1e2d0, #e8d2bb);
+  width: 360px;
+  height: 240px;
+  background: #a9a39a; /* Цвят от снимката */
   position: relative;
   cursor: pointer;
-  box-shadow: 0 15px 25px rgba(0,0,0,0.2);
-  border-radius: 5px;
-  transition: transform 0.3s ease;
-}
-
-.envelope:hover {
-  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+  border-radius: 4px;
 }
 
 .flap {
@@ -46,22 +40,41 @@ body{
   left: 0;
   width: 100%;
   height: 100%;
-  background: #d8c7b3;
-  clip-path: polygon(0 0, 100% 0, 50% 50%); /* Форма на триъгълник */
+  background: #b6afa6;
+  clip-path: polygon(0 0, 100% 0, 50% 60%);
   transform-origin: top;
-  transition: transform 0.8s ease-in-out;
+  transition: transform 1s ease-in-out;
   z-index: 2;
+  border-radius: 4px 4px 0 0;
 }
 
-.letter-preview {
+/* Златен печат */
+.wax-seal {
   position: absolute;
-  top: 50%;
+  top: 52%; 
   left: 50%;
   transform: translate(-50%, -50%);
-  color: #8b5e3c;
-  font-weight: bold;
+  width: 55px;
+  height: 55px;
+  background: #d4af37;
+  background-image: url('https://img.icons8.com/ios-filled/100/ffffff/tree-planting.png'); /* Икона на дърво */
+  background-size: 70%;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3), inset 0 0 10px rgba(0,0,0,0.2);
+  z-index: 3;
+  border: 2px solid #b8860b;
+  transition: opacity 0.5s;
+}
+
+.envelope-text {
+  position: absolute;
+  bottom: 40px;
+  width: 100%;
+  color: #f1f1f1;
+  font-style: italic;
   font-size: 14px;
-  z-index: 1;
 }
 
 /* --- ОСНОВЕН САЙТ --- */
@@ -70,74 +83,96 @@ body{
   animation: fadeIn 1.5s ease;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
 header {
-  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
-              url('https://images.unsplash.com/photo-1519741497674-611481863552') center/cover no-repeat;
-  height: 80vh;
+  /* ТУК ЗАМЕНИ 'my-photo.jpg' С ТВОЯТА СНИМКА */
+  background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), 
+              url('my-photo.jpg') center/cover no-repeat;
+  height: 90vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   color: white;
+  text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
 }
 
-header h1 { font-size: clamp(40px, 8vw, 70px); margin: 0; }
-header h2 { font-weight: normal; margin-top: 10px; font-size: 24px; }
+header h1 { font-size: 50px; margin: 0; }
+header h2 { font-weight: normal; font-size: 22px; }
 
-section { padding: 60px 20px; max-width: 800px; margin: auto; }
+section { padding: 80px 20px; max-width: 700px; margin: auto; }
+h2 { color: #8b5e3c; font-size: 28px; margin-bottom: 30px; }
 
-.timeline { max-width: 400px; margin: auto; text-align: left; }
-.event { margin-bottom: 15px; padding: 15px; background: white; border-radius: 10px; border-left: 4px solid #c8a97e; }
-
-button {
-  padding: 15px 40px;
-  border: none;
-  background: #c8a97e;
-  color: white;
-  font-size: 18px;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-button:hover { background: #b5966a; }
-
-form { max-width: 400px; margin: auto; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-input, select { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 5px; }
-
-.drink-drive {
+/* ДРЕСКОД ЦВЕТОВЕ */
+.dresscode-colors {
   display: flex;
-  align-items: center;
-  max-width: 500px;
-  margin: 40px auto;
-  background: #fff3e6;
-  padding: 20px;
-  border-radius: 10px;
-  text-align: left;
-  font-size: 14px;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
 }
 
-.drink-drive img { width: 40px; margin-right: 15px; }
+.color-circle {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
 
-footer { padding: 40px; background: #eee; font-size: 14px; }
+/* ТУК МОЖЕШ ДА ПРОМЕНИШ ЦВЕТОВЕТЕ (HEX кодове) */
+.c1 { background: #e3d5ca; } /* Бежово */
+.c2 { background: #d5bdaf; } /* Таупе */
+.c3 { background: #edede9; } /* Кремаво */
+.c4 { background: #a3b18a; } /* Градински чай */
+.c5 { background: #588157; } /* Маслина */
 
 .map-link {
   display: inline-block;
-  margin-top: 10px;
-  padding: 10px 20px;
-  background: #c87e5a;
-  color: white !important;
+  margin-top: 15px;
+  padding: 12px 30px;
+  background: #a9a39a;
+  color: white;
   text-decoration: none;
   border-radius: 5px;
   font-weight: bold;
-  transition: opacity 0.3s;
 }
 
-.map-link:hover { opacity: 0.9; }
+form { 
+  background: #fdfaf7; 
+  padding: 30px; 
+  border-radius: 10px; 
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
+}
+
+input, select, button { 
+  width: 100%; 
+  padding: 12px; 
+  margin: 10px 0; 
+  border-radius: 5px; 
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+}
+
+button { 
+  background: #8b5e3c; 
+  color: white; 
+  border: none; 
+  cursor: pointer; 
+  font-size: 16px; 
+}
+
+.drink-drive {
+  background: #f4ece4;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  text-align: left;
+  font-size: 14px;
+}
+.drink-drive img { width: 35px; margin-right: 15px; }
+
+footer { padding: 40px; background: #f7f7f7; font-size: 13px; color: #777; }
 
 </style>
 </head>
@@ -145,10 +180,9 @@ footer { padding: 40px; background: #eee; font-size: 14px; }
 
 <div id="envelope-screen">
   <div class="envelope" onclick="openEnvelope()">
-    <div class="flap" id="envelope-flap"></div>
-    <div class="letter-preview">
-      <p>Отвори поканата</p>
-    </div>
+    <div class="flap" id="f"></div>
+    <div class="wax-seal" id="s"></div>
+    <div class="envelope-text">Натиснете, за да отворите</div>
   </div>
 </div>
 
@@ -156,70 +190,78 @@ footer { padding: 40px; background: #eee; font-size: 14px; }
   <header>
     <h1>Виктория & Любомир</h1>
     <h2>22.08.2026</h2>
-    <p>Очакваме ви, за да споделим този момент!</p>
+    <p>Споделете нашето щастие!</p>
   </header>
 
   <section>
     <h2>Кога и Къде?</h2>
-    <p><strong>Дата:</strong> 22 Август 2026</p>
-    <p><strong>Начало:</strong> 17:30 ч.</p>
-    <p><strong>Място:</strong> Ресторант "Корията", София</p>
-    
-    <a href="https://www.google.com/maps/search/?api=1&query=Ресторант+Корията" 
-       target="_blank" class="map-link">
-       📍 Отвори в Google Maps
+    <p>Очакваме ви на <strong>22.08.2026 г.</strong> в 17:30 ч.</p>
+    <p>Ресторант "Корията", гр. София</p>
+    <a href="https://www.google.com/maps/search/?api=1&query=ресторант+Корията" target="_blank" class="map-link">
+       📍 ВИЖТЕ ЛОКАЦИЯТА
     </a>
   </section>
 
-  <section style="background: #fdfaf7;">
-    <h2>Програма</h2>
-    <div class="timeline">
-      <div class="event"><strong>17:30</strong><br>Welcome drink</div>
-      <div class="event"><strong>18:00</strong><br>Изнесена церемония</div>
-      <div class="event"><strong>19:00</strong><br>Празнична вечеря</div>
-    </div>
-
-    <div class="drink-drive">
-      <img src="https://img.icons8.com/ios-filled/50/c87e5a/car.png" alt="Car Icon"/>
-      <span>За вашето спокойствие сме подсигурили <strong>Drink & Drive</strong> услуги. Насладете се на празника, ние ще се погрижим за прибирането ви!</span>
+  <section style="background-color: #fdfaf7;">
+    <h2>Дрескод</h2>
+    <p>Ще бъдем щастливи, ако подкрепите нашата цветова палитра:</p>
+    <div class="dresscode-colors">
+      <div class="color-circle c1"></div>
+      <div class="color-circle c2"></div>
+      <div class="color-circle c3"></div>
+      <div class="color-circle c4"></div>
+      <div class="color-circle c5"></div>
     </div>
   </section>
 
   <section>
-    <h2>Потвърждение (RSVP)</h2>
-    <p>Моля, потвърдете вашето присъствие до 01.07.2026</p>
-    <form>
-      <input type="text" placeholder="Вашето име" required>
-      <select required>
+    <h2>Програма</h2>
+    <p><strong>17:30</strong> – Welcome Drink</p>
+    <hr style="width: 30%; border: 0.5px solid #eee;">
+    <p><strong>18:00</strong> – Ритуал</p>
+    <hr style="width: 30%; border: 0.5px solid #eee;">
+    <p><strong>19:00</strong> – Вечеря и танци</p>
+
+    <div class="drink-drive">
+      <img src="https://img.icons8.com/ios-filled/50/8b5e3c/car.png" alt="Car"/>
+      <span>За вашето пълно спокойствие сме подсигурили <strong>Drink & Drive</strong> пакет за вечерта.</span>
+    </div>
+  </section>
+
+  <section style="background-color: #fdfaf7;">
+    <h2>Потвърждение</h2>
+    <form action="https://formspree.io/f/lyubomir.kostov95@gmail.com" method="POST">
+      <input type="text" name="name" placeholder="Вашето име" required>
+      <select name="status" required>
         <option value="" disabled selected>Ще присъствате ли?</option>
-        <option>Ще присъствам с удоволствие</option>
-        <option>За съжаление няма да мога</option>
+        <option value="Да">Да, ще присъствам</option>
+        <option value="Не">За съжаление, не</option>
       </select>
-      <button type="submit">Изпрати</button>
+      <input type="number" name="guests" placeholder="Брой гости" min="1">
+      <button type="submit">ИЗПРАТИ</button>
     </form>
   </section>
 
   <footer>
-    <p>С много обич – Виктория и Любомир</p>
+    <p>С обич: Виктория и Любомир</p>
   </footer>
 </div>
 
 <script>
 function openEnvelope(){
-  // Анимация на капака
-  document.getElementById("envelope-flap").style.transform = "rotateX(180deg)";
+  document.getElementById("f").style.transform = "rotateX(180deg)";
+  document.getElementById("s").style.opacity = "0";
   
-  // Изчакване на анимацията и превключване на екраните
   setTimeout(() => {
     document.getElementById("envelope-screen").style.opacity = "0";
-    document.getElementById("envelope-screen").style.transition = "opacity 0.5s";
+    document.getElementById("envelope-screen").style.transition = "opacity 0.8s ease";
     
     setTimeout(() => {
       document.getElementById("envelope-screen").style.display = "none";
       document.getElementById("main-site").style.display = "block";
       window.scrollTo(0, 0);
-    }, 500);
-  }, 800);
+    }, 800);
+  }, 1000);
 }
 </script>
 
