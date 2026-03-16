@@ -10,7 +10,7 @@ body {
   margin: 0;
   font-family: 'Georgia', serif;
   font-size: 24px; 
-  background: #ffffff;
+  background: #ffffff; /* Чист бял фон */
   color: #333;
   text-align: center;
   line-height: 1.6;
@@ -199,7 +199,7 @@ footer { padding: 50px; background: #f7f7f7; font-size: 20px; color: #777; }
     <h2>Кога и Къде?</h2>
     <p>Очакваме ви на <strong>22.08.2026 г.</strong> в 17:30 ч.</p>
     <p>Ресторант "Корията", гр. София</p>
-    <a href="https://maps.google.com/?q=Ресторант+Корията+София" target="_blank" class="map-link">
+    <a href="https://maps.google.com/?cid=8868795563343412192&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNl" target="_blank" class="map-link">
         📍 ВИЖТЕ ЛОКАЦИЯТА
     </a>
   </section>
@@ -233,19 +233,11 @@ footer { padding: 50px; background: #f7f7f7; font-size: 20px; color: #777; }
     <p>Моля да потвърдите вашето присъствие до 20.07.2026</p>
     <form action="https://formspree.io/f/lyubomir.kostov95@gmail.com" method="POST">
       <input type="text" name="name" placeholder="Вашето име" required>
-      
       <select name="status" required>
         <option value="" disabled selected>Ще присъствате ли?</option>
         <option value="Да">Да, ще присъствам</option>
         <option value="Не">За съжаление, не</option>
       </select>
-
-      <select name="food_choice" required>
-        <option value="" disabled selected>МЕНЮ</option>
-        <option value="Месо">МЕСО</option>
-        <option value="Вегетарианско">ВЕГЕТАРИАНСКО</option>
-      </select>
-
       <input type="number" name="guests" placeholder="Брой гости" min="1">
       <button type="submit">ИЗПРАТИ</button>
     </form>
