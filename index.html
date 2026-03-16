@@ -10,10 +10,7 @@ body {
   margin: 0;
   font-family: 'Georgia', serif;
   font-size: 24px; 
-  background-color: #ffffff;
-  /* Добавяне на фонови цветя чрез SVG */
-  background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill-opacity='0.4'%3E%3Cpath d='M30 20c0-10 15-10 15 0s-15 10-15 0z' fill='%23add8e6'/%3E%3Cpath d='M37 13c10 0 10 15 0 15s-10-15 0-15z' fill='%23add8e6'/%3E%3Ccircle cx='37' cy='20' r='3' fill='%23fdfaf1'/%3E%3Cpath d='M150 140c0-10 15-10 15 0s-15 10-15 0z' fill='%23f9edea'/%3E%3Cpath d='M157 133c10 0 10 15 0 15s-10-15 0-15z' fill='%23f9edea'/%3E%3Ccircle cx='157' cy='140' r='3' fill='%23eac9c3'/%3E%3Cpath d='M80 100c0-8 12-8 12 0s-12 8-12 0z' fill='%23eac9c3'/%3E%3Cpath d='M86 94c8 0 8 12 0 12s-8-12 0-12z' fill='%23eac9c3'/%3E%3Ccircle cx='86' cy='100' r='2' fill='%23fdfaf1'/%3E%3C/g%3E%3C/svg%3E");
-  background-attachment: fixed;
+  background: #ffffff;
   color: #333;
   text-align: center;
   line-height: 1.6;
@@ -141,7 +138,7 @@ h2 { color: #8b5e3c; font-size: 40px; margin-bottom: 30px; }
 }
 
 form { 
-  background: rgba(253, 250, 247, 0.9); /* Лека прозрачност, за да се виждат цветята */
+  background: #fdfaf7; 
   padding: 40px 20px; 
   border-radius: 10px; 
   box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
@@ -167,7 +164,7 @@ button {
 }
 
 .drink-drive {
-  background: rgba(244, 236, 228, 0.9);
+  background: #f4ece4;
   padding: 25px;
   border-radius: 10px;
   margin-top: 40px;
@@ -178,7 +175,7 @@ button {
 }
 .drink-drive img { width: 40px; margin-right: 20px; }
 
-footer { padding: 50px; background: rgba(247, 247, 247, 0.9); font-size: 20px; color: #777; }
+footer { padding: 50px; background: #f7f7f7; font-size: 20px; color: #777; }
 </style>
 </head>
 <body>
@@ -202,12 +199,12 @@ footer { padding: 50px; background: rgba(247, 247, 247, 0.9); font-size: 20px; c
     <h2>Кога и Къде?</h2>
     <p>Очакваме ви на <strong>22.08.2026 г.</strong> в 17:30 ч.</p>
     <p>Ресторант "Корията", гр. София</p>
-    <a href="https://maps.google.com/?cid=8868795563343412192&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNl" target="_blank" class="map-link">
+    <a href="https://maps.google.com" target="_blank" class="map-link">
         📍 ВИЖТЕ ЛОКАЦИЯТА
     </a>
   </section>
 
-  <section style="background-color: rgba(253, 250, 247, 0.7);">
+  <section style="background-color: #fdfaf7;">
     <h2>Дрескод</h2>
     <p>Ще бъдем щастливи, ако подкрепите нашата цветова палитра:</p>
     <div class="dresscode-colors">
@@ -231,16 +228,24 @@ footer { padding: 50px; background: rgba(247, 247, 247, 0.9); font-size: 20px; c
     </div>
   </section>
 
-  <section style="background-color: rgba(253, 250, 247, 0.7);">
+  <section style="background-color: #fdfaf7;">
     <h2>Потвърждение</h2>
     <p>Моля да потвърдите вашето присъствие до 20.07.2026</p>
     <form action="https://formspree.io/f/lyubomir.kostov95@gmail.com" method="POST">
       <input type="text" name="name" placeholder="Вашето име" required>
+      
       <select name="status" required>
         <option value="" disabled selected>Ще присъствате ли?</option>
         <option value="Да">Да, ще присъствам</option>
         <option value="Не">За съжаление, не</option>
       </select>
+
+      <select name="food_menu" required>
+        <option value="" disabled selected>МЕНЮ</option>
+        <option value="Месо">МЕСО</option>
+        <option value="Вегетарианско">ВЕГЕТАРИАНСКО</option>
+      </select>
+
       <input type="number" name="guests" placeholder="Брой гости" min="1">
       <button type="submit">ИЗПРАТИ</button>
     </form>
