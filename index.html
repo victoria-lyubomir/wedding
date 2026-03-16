@@ -190,7 +190,7 @@ footer { padding: 50px; background: #f7f7f7; font-size: 20px; color: #777; }
 <header>
 <h1>Виктория & Любомир</h1>
 <h2>22.08.2026</h2>
-<p>С огромна радост Ви каним да споделите най-щастливия ден в живота ни, нашата сватба!</p>
+<p>С огромна радост Ви каним да споделите най-щастливия ден в живота ни, нашата Сватба!</p>
 </header>
 
 <section>
@@ -264,10 +264,16 @@ footer { padding: 50px; background: #f7f7f7; font-size: 20px; color: #777; }
 <p>С обич: Виктория и Любомир</p>
 </footer>
 
+<audio id="bg-music" loop>
+<source src="music.mp3" type="audio/mpeg">
+</audio>
+
 </div>
 
 <script>
 function openEnvelope(){
+
+document.getElementById("bg-music").play();
 
 document.getElementById("f").style.transform="rotateX(180deg)";
 document.getElementById("s").style.opacity="0";
