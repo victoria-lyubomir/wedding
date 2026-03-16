@@ -17,21 +17,28 @@ body {
   overflow-x: hidden;
 }
 
-/* --- ГОЛЕМИ ЦВЕТЯ В ЪГЛИТЕ --- */
-.flower-frame {
+/* --- ФЛОРАЛНИ ДЕКОРАЦИИ (ВГРАДЕНИ ДИРЕКТНО) --- */
+.flower-decor {
   position: fixed;
-  width: 350px; /* Достатъчно големи, за да се виждат детайлите */
-  height: auto;
-  z-index: 1; /* Под текста */
+  width: 300px;
+  height: 300px;
+  z-index: 1;
   pointer-events: none;
-  opacity: 0.9;
-  display: none; /* Появяват се след отваряне на плика */
+  opacity: 0.7;
+  display: none;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
-.top-left { top: -20px; left: -20px; }
-.top-right { top: -20px; right: -20px; transform: scaleX(-1); }
-.bottom-left { bottom: -20px; left: -20px; transform: scaleY(-1); }
-.bottom-right { bottom: -20px; right: -20px; transform: scale(-1); }
+/* Вградено изображение на нежни цветя (Base64) */
+.flower-img {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg transform='translate(20,20)'%3E%3Cpath d='M0 30 Q 15 0 30 30 Q 45 60 60 30' stroke='%238ba3bc' fill='none' stroke-width='1' opacity='0.5'/%3E%3Ccircle cx='30' cy='30' r='15' fill='%23eac9c3' opacity='0.6'/%3E%3Ccircle cx='45' cy='20' r='10' fill='%23fdfaf1' opacity='0.8'/%3E%3Cpath d='M30 30 L 50 10' stroke='%235d6d84' stroke-width='0.5'/%3E%3Cpath d='M30 30 L 10 10' stroke='%235d6d84' stroke-width='0.5'/%3E%3Cellipse cx='50' cy='10' rx='5' ry='10' fill='%23a3b18a' opacity='0.4' transform='rotate(45 50 10)'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.top-left { top: -30px; left: -30px; }
+.top-right { top: -30px; right: -30px; transform: scaleX(-1); }
+.bottom-left { bottom: -30px; left: -30px; transform: scaleY(-1); }
+.bottom-right { bottom: -30px; right: -30px; transform: scale(-1); }
 
 /* --- ПОЩЕНСКИ ПЛИК --- */
 #envelope-screen {
@@ -39,7 +46,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #f7f3ef;
+  background: #fdfaf7;
   perspective: 1500px;
   position: relative;
   z-index: 100;
@@ -93,7 +100,6 @@ body {
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
 header {
-  /* Твоята снимка my-photo.jpg */
   background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
               url('my-photo.jpg') center/cover no-repeat;
   height: 90vh;
@@ -110,13 +116,13 @@ section {
   padding: 80px 20px; 
   max-width: 800px; 
   margin: 40px auto; 
-  background: rgba(255, 255, 255, 0.85); /* Леко прозрачно, за да се виждат цветята отзад */
+  background: rgba(255, 255, 255, 0.9); 
   border-radius: 20px;
   position: relative;
   z-index: 10;
 }
 
-h2 { color: #8b5e3c; font-size: 40px; }
+h2 { color: #8b5e3c; font-size: 40px; margin-bottom: 30px; }
 
 /* ДРЕСКОД ЦВЕТОВЕ */
 .dresscode-colors {
@@ -147,6 +153,7 @@ h2 { color: #8b5e3c; font-size: 40px; }
   background: #a9a39a;
   color: white !important;
   text-decoration: none;
+  border-radius: 5px;
   font-weight: bold;
 }
 
@@ -161,10 +168,10 @@ footer { padding: 50px; font-size: 20px; color: #777; }
 </head>
 <body>
 
-<img src="https://www.pngarts.com/files/10/Corner-Wedding-Flower-PNG-Image.png" class="flower-frame top-left" id="fl1">
-<img src="https://www.pngarts.com/files/10/Corner-Wedding-Flower-PNG-Image.png" class="flower-frame top-right" id="fl2">
-<img src="https://www.pngarts.com/files/10/Corner-Wedding-Flower-PNG-Image.png" class="flower-frame bottom-left" id="fl3">
-<img src="https://www.pngarts.com/files/10/Corner-Wedding-Flower-PNG-Image.png" class="flower-frame bottom-right" id="fl4">
+<div class="flower-decor flower-img top-left" id="fl1"></div>
+<div class="flower-decor flower-img top-right" id="fl2"></div>
+<div class="flower-decor flower-img bottom-left" id="fl3"></div>
+<div class="flower-decor flower-img bottom-right" id="fl4"></div>
 
 <div id="envelope-screen">
   <div class="envelope" onclick="openEnvelope()">
@@ -178,19 +185,19 @@ footer { padding: 50px; font-size: 20px; color: #777; }
   <header>
     <h1>Виктория & Любомир</h1>
     <h2>22.08.2026</h2>
-    <p>С огромна радост Ви каним да споделите най-щастливия ден в живота ни!</p>
+    <p>С огромна радост Ви каним да споделите най-щастливия ден в живота ни, нашата сватба!</p>
   </header>
 
   <section>
     <h2>Кога и Къде?</h2>
-    <p><strong>22.08.2026 г.</strong> в 17:30 ч.</p>
-    <p>Ресторант "Корията", София</p>
+    <p>Очакваме ви на <strong>22.08.2026 г.</strong> в 17:30 ч.</p>
+    <p>Ресторант "Корията", гр. София</p>
     <a href="http://googleusercontent.com/maps.google.com/9" target="_blank" class="map-link">📍 ВИЖТЕ ЛОКАЦИЯТА</a>
   </section>
 
   <section>
     <h2>Дрескод</h2>
-    <p>Ще бъдем щастливи, ако изберете облекло в нашата палитра:</p>
+    <p>Ще бъдем щастливи, ако подкрепите нашата цветова палитра:</p>
     <div class="dresscode-colors">
       <div class="color-circle c1"></div>
       <div class="color-circle c2"></div>
@@ -233,7 +240,7 @@ function openEnvelope(){
       document.getElementById("envelope-screen").style.display = "none";
       document.getElementById("main-site").style.display = "block";
       
-      // Показване на големите цветя
+      // Показване на цветята
       document.getElementById("fl1").style.display = "block";
       document.getElementById("fl2").style.display = "block";
       document.getElementById("fl3").style.display = "block";
