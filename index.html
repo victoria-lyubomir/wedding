@@ -1,539 +1,269 @@
 <!DOCTYPE html>
-
 <html lang="bg">
-
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Сватбата на Виктория и Любомир</title>
-
 <style>
-
 /* --- ОБЩИ СТИЛОВЕ --- */
-
 body {
-
   margin: 0;
-
   font-family: 'Georgia', serif;
-
   font-size: 24px; 
-
   background: #ffffff;
-
   color: #333;
-
   text-align: center;
-
   line-height: 1.6;
-
 }
 
-
-
-/* --- ПОЩЕНСКИ ПЛИК --- */
-
-#envelope-screen {
-
-  height: 100vh;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  background: #fdfaf7;
-
-  perspective: 1500px;
-
-}
-
-
-
-.envelope {
-
-  width: 400px; 
-
-  height: 260px;
-
-  background: #a9a39a; 
-
-  position: relative;
-
-  cursor: pointer;
-
-  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-
-  border-radius: 4px;
-
-}
-
-
-
-.flap {
-
-  position: absolute;
-
-  top: 0;
-
-  left: 0;
-
-  width: 100%;
-
-  height: 100%;
-
-  background: #b6afa6;
-
-  clip-path: polygon(0 0, 100% 0, 50% 60%);
-
-  transform-origin: top;
-
-  transition: transform 1s ease-in-out;
-
-  z-index: 2;
-
-  border-radius: 4px 4px 0 0;
-
-}
-
-
-
-.wax-seal {
-
-  position: absolute;
-
-  top: 52%; 
-
-  left: 50%;
-
-  transform: translate(-50%, -50%);
-
-  width: 60px;
-
-  height: 60px;
-
-  background: #d4af37;
-
-  background-image: url('https://img.icons8.com/ios-filled/100/ffffff/tree-planting.png'); 
-
-  background-size: 70%;
-
-  background-position: center;
-
-  background-repeat: no-repeat;
-
-  border-radius: 50%;
-
-  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-
-  z-index: 3;
-
-  border: 2px solid #b8860b;
-
-  transition: opacity 0.5s;
-
-}
-
-
-
-.envelope-text {
-
-  position: absolute;
-
-  bottom: 35px;
-
-  width: 100%;
-
-  color: #f1f1f1;
-
-  font-style: italic;
-
-  font-size: 20px;
-
-}
-
-
-
-/* --- ОСНОВЕН САЙТ --- */
-
+/* --- ФЛОРАЛЕН ФОН (Главното решение) --- */
 #main-site {
-
   display: none;
-
   animation: fadeIn 1.5s ease;
-
+  background-color: #ffffff;
+  /* Вграждаме цветята като фонови елементи в ъглите */
+  background-image: 
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300' viewBox='0 0 100 100'%3E%3Ccircle cx='20' cy='20' r='35' fill='%238ba3bc' opacity='0.2'/%3E%3Ccircle cx='50' cy='10' r='25' fill='%23eac9c3' opacity='0.2'/%3E%3Cpath d='M0,50 Q30,20 60,0' stroke='%235d6d84' stroke-width='1' fill='none' opacity='0.2'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300' viewBox='0 0 100 100'%3E%3Ccircle cx='80' cy='80' r='35' fill='%23eac9c3' opacity='0.2'/%3E%3Ccircle cx='50' cy='90' r='25' fill='%23fdfaf1' opacity='0.3'/%3E%3Cpath d='M100,50 Q70,80 40,100' stroke='%235d6d84' stroke-width='1' fill='none' opacity='0.2'/%3E%3C/svg%3E");
+  background-position: top left, bottom right;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 400px;
 }
-
-
 
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-
-
-header {
-
-  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
-
-              url('my-photo.jpg') center/cover no-repeat;
-
-  height: 90vh;
-
+/* --- ПОЩЕНСКИ ПЛИК --- */
+#envelope-screen {
+  height: 100vh;
   display: flex;
-
-  flex-direction: column;
-
+  align-items: center;
   justify-content: center;
-
-  color: white;
-
-  text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
-
+  background: #fdfaf7;
+  perspective: 1500px;
 }
 
+.envelope {
+  width: 380px; 
+  height: 250px;
+  background: #a9a39a; 
+  position: relative;
+  cursor: pointer;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+  border-radius: 4px;
+}
 
+.flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #b6afa6;
+  clip-path: polygon(0 0, 100% 0, 50% 60%);
+  transform-origin: top;
+  transition: transform 1s ease-in-out;
+  z-index: 2;
+  border-radius: 4px 4px 0 0;
+}
+
+.wax-seal {
+  position: absolute;
+  top: 52%; 
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  background: #d4af37;
+  background-image: url('https://img.icons8.com/ios-filled/100/ffffff/tree-planting.png'); 
+  background-size: 70%;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  z-index: 3;
+  border: 2px solid #b8860b;
+}
+
+.envelope-text {
+  position: absolute;
+  bottom: 35px;
+  width: 100%;
+  color: #f1f1f1;
+  font-style: italic;
+  font-size: 20px;
+}
+
+/* --- СЕКЦИИ --- */
+header {
+  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+              url('my-photo.jpg') center/cover no-repeat;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+  text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+}
 
 header h1 { font-size: 60px; margin: 0; }
-
 header h2 { font-weight: normal; font-size: 30px; }
 
-
-
-section { padding: 80px 20px; max-width: 800px; margin: auto; }
+section { 
+  padding: 80px 20px; 
+  max-width: 800px; 
+  margin: auto; 
+  /* Правим секциите прозрачни, за да се вижда фона под тях */
+  background: rgba(255, 255, 255, 0.7);
+  margin-top: 20px;
+  border-radius: 15px;
+}
 
 h2 { color: #8b5e3c; font-size: 40px; margin-bottom: 30px; }
 
-
-
+/* ДРЕСКОД */
 .dresscode-colors {
-
   display: flex;
-
   justify-content: center;
-
   gap: 15px;
-
   margin-top: 25px;
-
   flex-wrap: wrap;
-
 }
-
-
 
 .color-circle {
-
   width: 65px;
-
   height: 65px;
-
   border-radius: 50%;
-
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-
   border: 2px solid #eee;
-
 }
-
-
 
 .c1 { background: #5d6d84; } 
-
 .c2 { background: #8ba3bc; } 
-
 .c3 { background: #eac9c3; } 
-
 .c4 { background: #f9edea; } 
-
 .c5 { background: #fdfaf1; } 
 
-
-
 .map-link {
-
   display: inline-block;
-
   margin-top: 15px;
-
   padding: 15px 35px;
-
   background: #a9a39a;
-
   color: white !important;
-
   text-decoration: none;
-
   border-radius: 5px;
-
   font-weight: bold;
-
   font-size: 22px;
-
 }
-
-
 
 form { 
-
   background: #fdfaf7; 
-
   padding: 40px 20px; 
-
   border-radius: 10px; 
-
   box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
-
 }
-
-
 
 input, select, button { 
-
   width: 100%; 
-
   padding: 15px; 
-
   margin: 12px 0; 
-
   border-radius: 5px; 
-
   border: 1px solid #ddd;
-
   box-sizing: border-box;
-
   font-size: 22px; 
-
   font-family: 'Georgia', serif;
-
 }
 
+button { background: #8b5e3c; color: white; border: none; cursor: pointer; font-weight: bold; }
 
-
-button { 
-
-  background: #8b5e3c; 
-
-  color: white; 
-
-  border: none; 
-
-  cursor: pointer; 
-
-  font-weight: bold;
-
-}
-
-
-
-.drink-drive {
-
-  background: #f4ece4;
-
-  padding: 25px;
-
-  border-radius: 10px;
-
-  margin-top: 40px;
-
-  display: flex;
-
-  align-items: center;
-
-  text-align: left;
-
-  font-size: 21px; 
-
-}
-
-.drink-drive img { width: 40px; margin-right: 20px; }
-
-
-
-footer { padding: 50px; background: #f7f7f7; font-size: 20px; color: #777; }
-
+footer { padding: 50px; font-size: 20px; color: #777; }
 </style>
-
 </head>
-
 <body>
 
-
-
 <div id="envelope-screen">
-
   <div class="envelope" onclick="openEnvelope()">
-
     <div class="flap" id="f"></div>
-
     <div class="wax-seal" id="s"></div>
-
     <div class="envelope-text">Натиснете, за да отворите</div>
-
   </div>
-
 </div>
-
-
 
 <div id="main-site">
-
   <header>
-
     <h1>Виктория & Любомир</h1>
-
     <h2>22.08.2026</h2>
-
     <p>С огромна радост Ви каним да споделите най-щастливия ден в живота ни, нашата сватба!</p>
-
   </header>
 
-
-
   <section>
-
     <h2>Кога и Къде?</h2>
-
     <p>Очакваме ви на <strong>22.08.2026 г.</strong> в 17:30 ч.</p>
-
     <p>Ресторант "Корията", гр. София</p>
-
     <a href="https://maps.google.com/?cid=8868795563343412192&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNl" target="_blank" class="map-link">
-
         📍 ВИЖТЕ ЛОКАЦИЯТА
-
     </a>
-
   </section>
-
-
-
-  <section style="background-color: #fdfaf7;">
-
-    <h2>Дрескод</h2>
-
-    <p>Ще бъдем щастливи, ако подкрепите нашата цветова палитра:</p>
-
-    <div class="dresscode-colors">
-
-      <div class="color-circle c1"></div>
-
-      <div class="color-circle c2"></div>
-
-      <div class="color-circle c3"></div>
-
-      <div class="color-circle c4"></div>
-
-      <div class="color-circle c5"></div>
-
-    </div>
-
-  </section>
-
-
 
   <section>
-
-    <h2>Програма</h2>
-
-    <p><strong>17:30</strong> – Welcome Drink</p>
-
-    <p><strong>18:00</strong> – Ритуал</p>
-
-    <p><strong>19:00</strong> – Вечеря и танци</p>
-
-
-
-    <div class="drink-drive">
-
-      <img src="https://img.icons8.com/ios-filled/50/8b5e3c/car.png" alt="Car"/>
-
-      <span>За вашето пълно спокойствие и добро настроение, сме подсигурили неограничен <strong>Drink & Drive</strong> пакет за вечерта. Насладете се на празника, а ние ще се погрижим вие и автомобилът ви да се приберете безопасно!</span>
-
+    <h2>Дрескод</h2>
+    <p>Ще бъдем щастливи, ако подкрепите нашата цветова палитра:</p>
+    <div class="dresscode-colors">
+      <div class="color-circle c1"></div>
+      <div class="color-circle c2"></div>
+      <div class="color-circle c3"></div>
+      <div class="color-circle c4"></div>
+      <div class="color-circle c5"></div>
     </div>
-
   </section>
 
+  <section>
+    <h2>Програма</h2>
+    <p><strong>17:30</strong> – Welcome Drink</p>
+    <p><strong>18:00</strong> – Ритуал</p>
+    <p><strong>19:00</strong> – Вечеря и танци</p>
+    <div style="background: #f4ece4; padding: 20px; border-radius: 10px; margin-top: 20px; font-size: 20px;">
+        За вашето спокойствие сме подсигурили <strong>Drink & Drive</strong> пакет за вечерта.
+    </div>
+  </section>
 
-
-  <section style="background-color: #fdfaf7;">
-
+  <section>
     <h2>Потвърждение</h2>
-
     <p>Моля да потвърдите вашето присъствие до 20.07.2026</p>
-
     <form action="https://formspree.io/f/lyubomir.kostov95@gmail.com" method="POST">
-
       <input type="text" name="name" placeholder="Вашето име" required>
-
       <select name="status" required>
-
         <option value="" disabled selected>Ще присъствате ли?</option>
-
         <option value="Да">Да, ще присъствам</option>
-
         <option value="Не">За съжаление, не</option>
-
       </select>
-
       <input type="number" name="guests" placeholder="Брой гости" min="1">
-
       <button type="submit">ИЗПРАТИ</button>
-
     </form>
-
   </section>
-
-
 
   <footer>
-
     <p>С обич: Виктория и Любомир</p>
-
   </footer>
-
 </div>
 
-
-
 <script>
-
 function openEnvelope(){
-
   document.getElementById("f").style.transform = "rotateX(180deg)";
-
   document.getElementById("s").style.opacity = "0";
-
   
-
   setTimeout(() => {
-
     document.getElementById("envelope-screen").style.opacity = "0";
-
     document.getElementById("envelope-screen").style.transition = "opacity 0.8s ease";
-
     
-
     setTimeout(() => {
-
       document.getElementById("envelope-screen").style.display = "none";
-
       document.getElementById("main-site").style.display = "block";
-
       window.scrollTo(0, 0);
-
     }, 800);
-
   }, 1000);
-
 }
-
 </script>
 
-
-
 </body>
-
 </html>
