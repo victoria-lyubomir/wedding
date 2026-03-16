@@ -144,16 +144,19 @@ form {
   box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
 }
 
+.form-group {
+  margin-bottom: 15px;
+}
+
 input, select, button { 
   width: 100%; 
   padding: 15px; 
-  margin: 12px 0; 
   border-radius: 5px; 
   border: 1px solid #ddd;
   box-sizing: border-box;
   font-size: 22px; 
   font-family: 'Georgia', serif;
-  display: block; /* Гарантира, че всеки елемент е на нов ред */
+  background-color: white;
 }
 
 button { 
@@ -162,6 +165,7 @@ button {
   border: none; 
   cursor: pointer; 
   font-weight: bold;
+  margin-top: 10px;
 }
 
 .drink-drive {
@@ -234,21 +238,30 @@ footer { padding: 50px; background: #f7f7f7; font-size: 20px; color: #777; }
     <p>Моля да потвърдите вашето присъствие до 20.07.2026</p>
     
     <form action="https://formspree.io/f/lyubomir.kostov95@gmail.com" method="POST">
-      <input type="text" name="name" placeholder="Вашето име" required>
       
-      <select name="status" required>
-        <option value="" disabled selected>Ще присъствате ли?</option>
-        <option value="Да">Да, ще присъствам</option>
-        <option value="Не">За съжаление, не</option>
-      </select>
-      
-      <input type="number" name="guests" placeholder="Брой гости" min="1">
-      
-      <select name="menu_type" required>
-        <option value="" disabled selected>Изберете МЕНЮ</option>
-        <option value="Месо">МЕСО</option>
-        <option value="Вегетарианско">ВЕГЕТАРИАНСКО</option>
-      </select>
+      <div class="form-group">
+        <input type="text" name="name" placeholder="Вашето име" required>
+      </div>
+
+      <div class="form-group">
+        <select name="status" required>
+          <option value="" disabled selected>Ще присъствате ли?</option>
+          <option value="Да">Да, ще присъствам</option>
+          <option value="Не">За съжаление, не</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <input type="number" name="guests" placeholder="Брой гости" min="1">
+      </div>
+
+      <div class="form-group">
+        <select name="wedding_menu_choice" required>
+          <option value="" disabled selected>МЕНЮ</option>
+          <option value="Месо">МЕСО</option>
+          <option value="Вегетарианско">ВЕГЕТАРИАНСКО</option>
+        </select>
+      </div>
       
       <button type="submit">ИЗПРАТИ</button>
     </form>
