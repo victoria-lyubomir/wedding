@@ -10,11 +10,28 @@ body {
   margin: 0;
   font-family: 'Georgia', serif;
   font-size: 24px; 
-  background: #ffffff; /* Чист бял фон */
+  background: #ffffff;
   color: #333;
   text-align: center;
   line-height: 1.6;
+  overflow-x: hidden;
 }
+
+/* --- ФЛОРАЛНИ ДЕКОРАЦИИ ПО СНИМКАТА --- */
+.flower-decor {
+  position: fixed;
+  width: 300px; /* Достатъчно големи за детайл */
+  height: auto;
+  z-index: 1; /* Под текста */
+  pointer-events: none;
+  opacity: 0.7;
+  display: none; /* Появяват се след отваряне */
+}
+
+.top-left { top: -40px; left: -40px; }
+.top-right { top: -40px; right: -40px; transform: scaleX(-1); }
+.bottom-left { bottom: -40px; left: -40px; transform: scaleY(-1); }
+.bottom-right { bottom: -40px; right: -40px; transform: scale(-1); }
 
 /* --- ПОЩЕНСКИ ПЛИК --- */
 #envelope-screen {
@@ -24,6 +41,8 @@ body {
   justify-content: center;
   background: #fdfaf7;
   perspective: 1500px;
+  position: relative;
+  z-index: 20;
 }
 
 .envelope {
@@ -66,7 +85,6 @@ body {
   box-shadow: 0 2px 5px rgba(0,0,0,0.3);
   z-index: 3;
   border: 2px solid #b8860b;
-  transition: opacity 0.5s;
 }
 
 .envelope-text {
@@ -82,6 +100,7 @@ body {
 #main-site {
   display: none;
   animation: fadeIn 1.5s ease;
+  background: white;
 }
 
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
@@ -95,14 +114,27 @@ header {
   justify-content: center;
   color: white;
   text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+  position: relative;
+  z-index: 10;
 }
 
 header h1 { font-size: 60px; margin: 0; }
 header h2 { font-weight: normal; font-size: 30px; }
 
-section { padding: 80px 20px; max-width: 800px; margin: auto; }
+section { 
+  padding: 80px 20px; 
+  max-width: 800px; 
+  margin: auto; 
+  position: relative; 
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.85); /* Прави текста четлив над цветята */
+  border-radius: 20px;
+  margin-top: 20px;
+}
+
 h2 { color: #8b5e3c; font-size: 40px; margin-bottom: 30px; }
 
+/* ДРЕСКОД ЦВЕТОВЕ */
 .dresscode-colors {
   display: flex;
   justify-content: center;
@@ -152,7 +184,6 @@ input, select, button {
   border: 1px solid #ddd;
   box-sizing: border-box;
   font-size: 22px; 
-  font-family: 'Georgia', serif;
 }
 
 button { 
@@ -163,22 +194,15 @@ button {
   font-weight: bold;
 }
 
-.drink-drive {
-  background: #f4ece4;
-  padding: 25px;
-  border-radius: 10px;
-  margin-top: 40px;
-  display: flex;
-  align-items: center;
-  text-align: left;
-  font-size: 21px; 
-}
-.drink-drive img { width: 40px; margin-right: 20px; }
-
-footer { padding: 50px; background: #f7f7f7; font-size: 20px; color: #777; }
+footer { padding: 50px; background: transparent; font-size: 20px; color: #777; position: relative; z-index: 10; }
 </style>
 </head>
 <body>
+
+<img src="https://www.transparentpng.com/download/floral/wedding-invitation-flower-png-floral-frame-free-download-23.png" class="flower-decor top-left">
+<img src="https://www.transparentpng.com/download/floral/wedding-invitation-flower-png-floral-frame-free-download-23.png" class="flower-decor top-right">
+<img src="https://www.transparentpng.com/download/floral/wedding-invitation-flower-png-floral-frame-free-download-23.png" class="flower-decor bottom-left">
+<img src="https://www.transparentpng.com/download/floral/wedding-invitation-flower-png-floral-frame-free-download-23.png" class="flower-decor bottom-right">
 
 <div id="envelope-screen">
   <div class="envelope" onclick="openEnvelope()">
@@ -199,12 +223,12 @@ footer { padding: 50px; background: #f7f7f7; font-size: 20px; color: #777; }
     <h2>Кога и Къде?</h2>
     <p>Очакваме ви на <strong>22.08.2026 г.</strong> в 17:30 ч.</p>
     <p>Ресторант "Корията", гр. София</p>
-    <a href="https://maps.google.com/?cid=8868795563343412192&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNl" target="_blank" class="map-link">
+    <a href="http://googleusercontent.com/maps.google.com/9" target="_blank" class="map-link">
         📍 ВИЖТЕ ЛОКАЦИЯТА
     </a>
   </section>
 
-  <section style="background-color: #fdfaf7;">
+  <section style="background-color: rgba(253, 250, 247, 0.9);">
     <h2>Дрескод</h2>
     <p>Ще бъдем щастливи, ако подкрепите нашата цветова палитра:</p>
     <div class="dresscode-colors">
@@ -221,14 +245,9 @@ footer { padding: 50px; background: #f7f7f7; font-size: 20px; color: #777; }
     <p><strong>17:30</strong> – Welcome Drink</p>
     <p><strong>18:00</strong> – Ритуал</p>
     <p><strong>19:00</strong> – Вечеря и танци</p>
-
-    <div class="drink-drive">
-      <img src="https://img.icons8.com/ios-filled/50/8b5e3c/car.png" alt="Car"/>
-      <span>За вашето пълно спокойствие и добро настроение, сме подсигурили неограничен <strong>Drink & Drive</strong> пакет за вечерта. Насладете се на празника, а ние ще се погрижим вие и автомобилът ви да се приберете безопасно!</span>
-    </div>
   </section>
 
-  <section style="background-color: #fdfaf7;">
+  <section style="background-color: rgba(253, 250, 247, 0.9);">
     <h2>Потвърждение</h2>
     <p>Моля да потвърдите вашето присъствие до 20.07.2026</p>
     <form action="https://formspree.io/f/lyubomir.kostov95@gmail.com" method="POST">
@@ -260,6 +279,11 @@ function openEnvelope(){
     setTimeout(() => {
       document.getElementById("envelope-screen").style.display = "none";
       document.getElementById("main-site").style.display = "block";
+      
+      // Показване на цветята
+      const flowers = document.querySelectorAll('.flower-decor');
+      flowers.forEach(img => img.style.display = 'block');
+      
       window.scrollTo(0, 0);
     }, 800);
   }, 1000);
