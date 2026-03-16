@@ -265,7 +265,7 @@ footer { padding: 50px; background: #f7f7f7; font-size: 20px; color: #777; }
 </footer>
 
 <audio id="bg-music" loop preload="auto">
-<source src="music.mp3" type="audio/mpeg">
+<source src="./music.mp3" type="audio/mpeg">
 </audio>
 
 </div>
@@ -273,9 +273,17 @@ footer { padding: 50px; background: #f7f7f7; font-size: 20px; color: #777; }
 <script>
 function openEnvelope(){
 
-const music = document.getElementById("bg-music");
-music.currentTime = 0;
-music.play().catch(()=>{});
+let music = document.getElementById("bg-music");
+
+music.volume = 0.6;
+
+let playPromise = music.play();
+
+if (playPromise !== undefined) {
+playPromise.catch(error => {
+console.log("Audio blocked:", error);
+});
+}
 
 document.getElementById("f").style.transform="rotateX(180deg)";
 document.getElementById("s").style.opacity="0";
