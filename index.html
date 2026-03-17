@@ -103,14 +103,8 @@ header h2 { font-weight: normal; font-size: 30px; }
   color: white; 
   background-color: #333; 
   padding: 10px;
-  margin-top: 20px;
-  opacity: 0;
-  animation: fadeInText 1.5s ease 1.5s forwards;
-}
-
-@keyframes fadeInText {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+  margin-top: 30px; /* Увеличаваме разстоянието */
+  opacity: 1; /* Поставяме 1, за да е винаги видим */
 }
 
 section { padding: 80px 20px; max-width: 800px; margin: auto; }
@@ -210,7 +204,7 @@ footer { padding: 50px; background: #f7f7f7; font-size: 20px; color: #777; }
 <header>
 <h1>Виктория & Любомир</h1>
 <h2>22.08.2026</h2>
-<p>С огромна радост Ви каним да споделите най-щастливия ден в живота ни, нашата Сватба!</p>
+<p>С огромна радост Ви каним да споделите най-щастливия ден в живота ни, нашата сватба!</p> <!-- Променено на малка буква "сватба" -->
 <p class="kumuvani">Кумуват: Ивона & Антонио</p> <!-- Добавеното текстче -->
 </header>
 
@@ -260,7 +254,7 @@ footer { padding: 50px; background: #f7f7f7; font-size: 20px; color: #777; }
 
 <form action="https://formspree.io/f/xjgaalzo" method="POST">
 
-  <input type="hidden" name="_next" value="https://https://victoria-lyubomir.github.io/wedding/">
+  <input type="hidden" name="_next" value="https://victoria-lyubomir.github.io/wedding/">
   <input type="hidden" name="_subject" value="Нов отговор на поканата!">
 
   <input type="text" name="name" placeholder="Вашето име" required>
