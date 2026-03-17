@@ -5,18 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Сватбата на Виктория и Любомир</title>
 <style>
-  /* ПЪЛНО РЕСТАРТИРАНЕ ЗА МОБИЛНИ */
   html, body {
     margin: 0;
     padding: 0;
     width: 100%;
-    min-height: 100%;
-    overflow-x: hidden; /* Забранява мърдане наляво-надясно */
+    overflow-x: hidden;
     font-family: 'Georgia', serif;
     background: #ffffff;
     color: #333;
     text-align: center;
-    -webkit-overflow-scrolling: touch; /* Плавно скролване за iPhone */
+    -webkit-overflow-scrolling: touch;
   }
 
   /* ЕКРАН С ПЛИК */
@@ -52,18 +50,16 @@
     background-size: 60%; background-position: center; background-repeat: no-repeat;
   }
 
-  /* ГЛАВЕН САЙТ - СКРИТ В НАЧАЛОТО */
+  /* ГЛАВЕН САЙТ */
   #main-site {
     display: none;
     width: 100%;
-    position: relative;
   }
 
-  /* HEADER СЪС СНИМКАТА */
   header {
-    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+    background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), 
                 url('my-photo.jpg') center/cover no-repeat;
-    height: 100vh; /* Заема точно един екран */
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -75,63 +71,62 @@
   }
 
   header h1 { font-size: 40px; margin: 0; }
-  header h2 { font-size: 26px; margin: 10px 0; font-weight: normal; }
+  header h2 { font-size: 26px; margin: 10px 0; font-weight: normal; color: #f9edea; }
   .invite-msg { font-size: 20px; max-width: 90%; margin: 20px 0; line-height: 1.4; }
 
-  /* КОРЕКЦИЯТА ЗА КУМОВЕТЕ - СТОИ ПОД ТЕКСТА, НЕ СЕ СЛИВА */
   .kumuvani {
     font-size: 22px;
-    margin-top: 30px;
+    margin-top: 35px;
     font-style: italic;
     font-weight: bold;
     display: block;
   }
 
-  /* ВСИЧКИ СЕКЦИИ НАДОЛУ */
+  /* СЕКЦИИ НАДОЛУ */
   section {
     padding: 60px 20px;
     max-width: 800px;
     margin: 0 auto;
-    display: block; /* Гарантира, че се виждат */
-    clear: both;
+    display: block;
   }
 
-  .section-title { color: #8b5e3c; font-size: 32px; margin-bottom: 20px; }
+  .section-title { color: #8b5e3c; font-size: 32px; margin-bottom: 25px; }
 
-  /* ДРЕСКОД ЦВЕТОВЕ */
   .dresscode-colors {
-    display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: 20px;
+    display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin: 20px 0;
   }
-  .color-circle { width: 50px; height: 50px; border-radius: 50%; border: 1px solid #ddd; }
+  .color-circle { width: 55px; height: 55px; border-radius: 50%; border: 1px solid #ddd; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
   .c1 { background: #5d6d84; } .c2 { background: #8ba3bc; } .c3 { background: #eac9c3; } .c4 { background: #f9edea; } .c5 { background: #fdfaf1; }
 
   .map-link {
     display: inline-block; padding: 15px 30px; background: #a9a39a; color: white !important;
     text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 20px;
+    font-size: 20px;
   }
 
+  /* ОБНОВЕН DRINK & DRIVE ТЕКСТ */
   .drink-drive {
-    background: #f4ece4; padding: 20px; border-radius: 10px; margin-top: 30px;
-    display: flex; align-items: center; text-align: left; font-size: 18px;
+    background: #f4ece4; padding: 25px; border-radius: 10px; margin-top: 35px;
+    display: flex; align-items: center; text-align: left; font-size: 18px; line-height: 1.4;
   }
-  .drink-drive img { width: 35px; margin-right: 15px; }
+  .drink-drive img { width: 40px; margin-right: 18px; }
 
   /* ФОРМА */
-  form { background: #fdfaf7; padding: 30px 15px; border-radius: 10px; margin-top: 20px; }
+  form { background: #fdfaf7; padding: 30px 15px; border-radius: 10px; margin-top: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
   input, select, button { 
-    width: 100%; padding: 12px; margin: 10px 0; border-radius: 5px; border: 1px solid #ddd;
+    width: 100%; padding: 12px; margin: 8px 0; border-radius: 5px; border: 1px solid #ddd;
     box-sizing: border-box; font-size: 18px; font-family: 'Georgia', serif;
   }
-  button { background: #8b5e3c; color: white; border: none; font-weight: bold; cursor: pointer; }
+  button { background: #8b5e3c; color: white; border: none; font-weight: bold; cursor: pointer; margin-top: 15px; }
 
-  footer { padding: 40px; background: #f7f7f7; font-size: 16px; }
+  footer { padding: 40px; background: #f7f7f7; font-size: 16px; color: #777; }
 
-  /* МОБИЛНИ КОРЕКЦИИ */
   @media (max-width: 480px) {
-    header h1 { font-size: 32px; }
+    header h1 { font-size: 34px; }
     header h2 { font-size: 22px; }
-    .invite-msg { font-size: 17px; }
-    section { padding: 40px 15px; }
+    .invite-msg { font-size: 18px; }
+    section { padding: 50px 15px; }
+    .section-title { font-size: 28px; }
   }
 </style>
 </head>
@@ -160,7 +155,7 @@
     <h2 class="section-title">Кога и Къде?</h2>
     <p>Очакваме ви на <strong>22.08.2026 г.</strong> в 17:30 ч.</p>
     <p>Ресторант "Корията", гр. София</p>
-    <a href="https://www.google.com/maps" target="_blank" class="map-link">📍 ВИЖТЕ ЛОКАЦИЯТА</a>
+    <a href="https://maps.google.com/?q=Ресторант+Корията+София" target="_blank" class="map-link">📍 ВИЖТЕ ЛОКАЦИЯТА</a>
   </section>
 
   <section style="background-color:#fdfaf7;">
@@ -180,14 +175,20 @@
     <p><strong>17:30</strong> – Welcome Drink</p>
     <p><strong>18:00</strong> – Ритуал</p>
     <p><strong>19:00</strong> – Вечеря и танци</p>
+    
     <div class="drink-drive">
       <img src="https://img.icons8.com/ios-filled/50/8b5e3c/car.png">
-      <span>Осигурили сме <strong>Drink & Drive</strong> пакет за вашето спокойствие!</span>
+      <span>
+        За вашето пълно спокойствие и добро настроение, сме подсигурили неограничен 
+        <strong>Drink & Drive</strong> пакет за вечерта. Насладете се на празника, а ние ще се погрижим 
+        вие и автомобилът ви да се приберете безопасно!
+      </span>
     </div>
   </section>
 
   <section style="background-color:#fdfaf7;">
     <h2 class="section-title">Потвърждение</h2>
+    <p>Моля да потвърдите присъствие до 20.07.2026</p>
     <form action="https://formspree.io/f/xjgaalzo" method="POST">
       <input type="text" name="name" placeholder="Вашето име" required>
       <select name="status" required>
@@ -217,7 +218,7 @@ function openEnvelope(){
     document.getElementById("envelope-screen").style.display = "none";
     document.getElementById("main-site").style.display = "block";
     
-    // ТОВА Е КЛЮЧЪТ: Силно активиране на скрола
+    // Активиране на скрола
     document.body.style.overflow = "visible";
     document.documentElement.style.overflow = "visible";
     window.scrollTo(0, 0);
