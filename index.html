@@ -174,13 +174,6 @@ button {
 .drink-drive img { width: 40px; margin-right: 20px; }
 
 footer { padding: 50px; background: #f7f7f7; font-size: 20px; color: #777; }
-
-.kumuvani {
-  font-size: 24px;
-  color: white; /* Бял текст */
-  background-color: #333; /* Тъмна лента за контраст */
-  padding: 10px;
-}
 </style>
 </head>
 <body>
@@ -199,10 +192,9 @@ footer { padding: 50px; background: #f7f7f7; font-size: 20px; color: #777; }
 
 <div id="main-site">
 <header>
-  <h1>Виктория & Любомир</h1>
-  <h2>22.08.2026</h2>
-  <p>С огромна радост Ви каним да споделите най-щастливия ден в живота ни, нашата сватба!</p>
-  <p class="kumuvani">Кумуват: Ивона & Антонио</p> <!-- Добавеното текстче -->
+<h1>Виктория & Любомир</h1>
+<h2>22.08.2026</h2>
+<p>С огромна радост Ви каним да споделите най-щастливия ден в живота ни, нашата Сватба!</p>
 </header>
 
 <section>
@@ -239,4 +231,85 @@ footer { padding: 50px; background: #f7f7f7; font-size: 20px; color: #777; }
 <img src="https://img.icons8.com/ios-filled/50/8b5e3c/car.png">
 <span>
 За вашето пълно спокойствие и добро настроение, сме подсигурили неограничен 
-<strong>Drink & Drive</strong> пакет за вечерта. Нас
+<strong>Drink & Drive</strong> пакет за вечерта. Насладете се на празника, а ние ще се погрижим 
+вие и автомобилът ви да се приберете безопасно!
+</span>
+</div>
+</section>
+
+<section style="background-color:#fdfaf7;">
+<h2>Потвърждение</h2>
+<p>Моля да потвърдите вашето присъствие до 20.07.2026</p>
+
+<form action="https://formspree.io/f/xjgaalzo" method="POST">
+
+  <input type="hidden" name="_next" value="https://https://victoria-lyubomir.github.io/wedding/">
+  <input type="hidden" name="_subject" value="Нов отговор на поканата!">
+
+  <input type="text" name="name" placeholder="Вашето име" required>
+
+<select name="status" required>
+<option value="" disabled selected>Ще присъствате ли?</option>
+<option value="Да">Да, ще присъствам</option>
+<option value="Не">За съжаление, не</option>
+</select>
+
+<input type="number" name="guests" placeholder="Брой гости" min="1">
+
+<select name="menu" required>
+<option value="" disabled selected>Изберете меню</option>
+<option value="Месо">Месо</option>
+<option value="Вегетарианско">Вегетарианско</option>
+</select>
+
+<button type="submit">ИЗПРАТИ</button>
+
+</form>
+</section>
+
+<footer>
+<p>С обич: Виктория и Любомир</p>
+</footer>
+
+</div>
+
+<script>
+function openEnvelope(){
+
+let music = document.getElementById("bg-music");
+
+// Малка корекция за подсигуряване на старта
+music.volume = 0.6;
+let playPromise = music.play();
+
+if (playPromise !== undefined) {
+    playPromise.then(_ => {
+        console.log("Music started!");
+    }).catch(error => {
+        console.log("Audio blocked:", error);
+    });
+}
+
+document.getElementById("f").style.transform="rotateX(180deg)";
+document.getElementById("s").style.opacity="0";
+
+setTimeout(()=>{
+
+document.getElementById("envelope-screen").style.opacity="0";
+document.getElementById("envelope-screen").style.transition="opacity 0.8s ease";
+
+setTimeout(()=>{
+
+document.getElementById("envelope-screen").style.display="none";
+document.getElementById("main-site").style.display="block";
+window.scrollTo(0,0);
+
+},800);
+
+},1000);
+
+}
+</script>
+
+</body>
+</html>
