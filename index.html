@@ -17,7 +17,7 @@
     -webkit-overflow-scrolling: touch;
   }
 
-  /* ЕКРАН С ПЛИК */
+  /* ПЛИК */
   #envelope-screen {
     height: 100vh;
     width: 100vw;
@@ -50,11 +50,7 @@
     background-size: 60%; background-position: center; background-repeat: no-repeat;
   }
 
-  /* ГЛАВЕН САЙТ */
-  #main-site {
-    display: none;
-    width: 100%;
-  }
+  #main-site { display: none; width: 100%; }
 
   header {
     background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), 
@@ -82,64 +78,53 @@
     display: block;
   }
 
-  /* СЕКЦИИ НАДОЛУ */
-  section {
-    padding: 60px 20px;
-    max-width: 800px;
-    margin: 0 auto;
-    display: block;
-  }
-
+  section { padding: 60px 20px; max-width: 800px; margin: 0 auto; display: block; }
   .section-title { color: #8b5e3c; font-size: 32px; margin-bottom: 25px; }
 
-  .dresscode-colors {
-    display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin: 20px 0;
-  }
+  .dresscode-colors { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin: 20px 0; }
   .color-circle { width: 55px; height: 55px; border-radius: 50%; border: 1px solid #ddd; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
   .c1 { background: #5d6d84; } .c2 { background: #8ba3bc; } .c3 { background: #eac9c3; } .c4 { background: #f9edea; } .c5 { background: #fdfaf1; }
 
   .map-link {
     display: inline-block; padding: 15px 30px; background: #a9a39a; color: white !important;
-    text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 20px;
-    font-size: 20px;
+    text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 20px; font-size: 20px;
   }
 
-  /* ОБНОВЕН DRINK & DRIVE ТЕКСТ */
+  /* КОРИГИРАНА DRINK & DRIVE СЕКЦИЯ */
   .drink-drive {
-    background: #f4ece4; padding: 25px; border-radius: 10px; margin-top: 35px;
-    display: flex; align-items: center; text-align: left; font-size: 18px; line-height: 1.4;
+    background: #f4ece4; 
+    padding: 25px; 
+    border-radius: 10px; 
+    margin-top: 35px;
+    display: flex; 
+    flex-direction: column; /* Иконата над текста на тесен екран за повече място */
+    align-items: center; 
+    text-align: center; 
+    font-size: 18px; 
+    line-height: 1.5;
   }
-  .drink-drive img { width: 40px; margin-right: 18px; }
 
-  /* ФОРМА */
-  form { background: #fdfaf7; padding: 30px 15px; border-radius: 10px; margin-top: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-  input, select, button { 
-    width: 100%; padding: 12px; margin: 8px 0; border-radius: 5px; border: 1px solid #ddd;
-    box-sizing: border-box; font-size: 18px; font-family: 'Georgia', serif;
+  @media (min-width: 600px) {
+    .drink-drive { flex-direction: row; text-align: left; }
+    .drink-drive img { margin-bottom: 0; margin-right: 20px; }
   }
+
+  .drink-drive img { width: 45px; margin-bottom: 15px; }
+
+  form { background: #fdfaf7; padding: 30px 15px; border-radius: 10px; margin-top: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+  input, select, button { width: 100%; padding: 12px; margin: 8px 0; border-radius: 5px; border: 1px solid #ddd; box-sizing: border-box; font-size: 18px; font-family: 'Georgia', serif; }
   button { background: #8b5e3c; color: white; border: none; font-weight: bold; cursor: pointer; margin-top: 15px; }
 
   footer { padding: 40px; background: #f7f7f7; font-size: 16px; color: #777; }
-
-  @media (max-width: 480px) {
-    header h1 { font-size: 34px; }
-    header h2 { font-size: 22px; }
-    .invite-msg { font-size: 18px; }
-    section { padding: 50px 15px; }
-    .section-title { font-size: 28px; }
-  }
 </style>
 </head>
 <body>
 
-<audio id="bg-music" loop>
-  <source src="https://github.com/lyubomir95/wedding/raw/refs/heads/main/music.mp3" type="audio/mpeg">
-</audio>
+<audio id="bg-music" loop><source src="https://github.com/lyubomir95/wedding/raw/refs/heads/main/music.mp3" type="audio/mpeg"></audio>
 
 <div id="envelope-screen">
   <div class="envelope" onclick="openEnvelope()">
-    <div class="flap" id="f"></div>
-    <div class="wax-seal" id="s"></div>
+    <div class="flap" id="f"></div><div class="wax-seal" id="s"></div>
   </div>
 </div>
 
@@ -160,13 +145,8 @@
 
   <section style="background-color:#fdfaf7;">
     <h2 class="section-title">Дрескод</h2>
-    <p>Ще бъдем щастливи, ако подкрепите нашата цветова палитра:</p>
     <div class="dresscode-colors">
-      <div class="color-circle c1"></div>
-      <div class="color-circle c2"></div>
-      <div class="color-circle c3"></div>
-      <div class="color-circle c4"></div>
-      <div class="color-circle c5"></div>
+      <div class="color-circle c1"></div><div class="color-circle c2"></div><div class="color-circle c3"></div><div class="color-circle c4"></div><div class="color-circle c5"></div>
     </div>
   </section>
 
@@ -177,7 +157,7 @@
     <p><strong>19:00</strong> – Вечеря и танци</p>
     
     <div class="drink-drive">
-      <img src="https://img.icons8.com/ios-filled/50/8b5e3c/car.png">
+      <img src="https://img.icons8.com/ios-filled/50/8b5e3c/car.png" alt="car">
       <span>
         За вашето пълно спокойствие и добро настроение, сме подсигурили неограничен 
         <strong>Drink & Drive</strong> пакет за вечерта. Насладете се на празника, а ние ще се погрижим 
@@ -188,7 +168,6 @@
 
   <section style="background-color:#fdfaf7;">
     <h2 class="section-title">Потвърждение</h2>
-    <p>Моля да потвърдите присъствие до 20.07.2026</p>
     <form action="https://formspree.io/f/xjgaalzo" method="POST">
       <input type="text" name="name" placeholder="Вашето име" required>
       <select name="status" required>
@@ -201,24 +180,18 @@
     </form>
   </section>
 
-  <footer>
-    <p>С обич: Виктория и Любомир</p>
-  </footer>
+  <footer><p>С обич: Виктория и Любомир</p></footer>
 </div>
 
 <script>
 function openEnvelope(){
   let music = document.getElementById("bg-music");
   music.play().catch(() => {});
-
   document.getElementById("f").style.transform = "rotateX(180deg)";
   document.getElementById("s").style.opacity = "0";
-
   setTimeout(() => {
     document.getElementById("envelope-screen").style.display = "none";
     document.getElementById("main-site").style.display = "block";
-    
-    // Активиране на скрола
     document.body.style.overflow = "visible";
     document.documentElement.style.overflow = "visible";
     window.scrollTo(0, 0);
